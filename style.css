@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+.header-nav {
+  background-color: #ffffff;
+  padding: 1.5rem 0;
+}
+
+.secret {
+  background-color: darkblue;
+  padding: 5px 15px;
+  color: white;
+  border-radius: 0.5rem;
+}
+.right-sec {
+  display: flex;
+  align-items: center;
+}
+.right-sec li {
+  list-style: none;
+  margin: 0 1rem;
+  font-weight: 700;
+  color: rgb(113, 112, 112);
+}
+.right-sec li:hover {
+  color: darkblue;
+  /* border-bottom: 2px solid darkblue; */
+}
+.right-sec li .active {
+  color: darkblue;
+  border-bottom: 2px solid darkblue;
+}
+.right-sec .image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.right-sec .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+
+.category #all-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: .5rem 0;
+}
+.category #all-category li {
+  list-style: none;
+  padding: .5rem;
+}
+.found-sec h5{
+    background-color: #dbd5ff;
+    padding: .5rem 2rem;
+    border-radius: .5rem;
+    font-size: 1.1rem;
+}
+.quality-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 0;
+    margin-bottom: .5rem;
+}
+.quality-bar .sort{
+    display: flex;
+    align-items: center;
+}
+.quality-bar .sort h5{
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+.quality-bar .sort .btn-group{
+    margin-left: 1rem;
+    list-style: none;
+    border: 1px solid darkblue;
+}
+
+
+
+
+.details-sec .card-sec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: .1s ease-in-out;
+}
+ .details-sec .card-sec:hover{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.details-sec .card-sec .right-pic{
+    width: 30%;
+    height: 250px;
+    border-radius: .5rem;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+.details-sec .card-sec .right-pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ .details-sec .card-sec .details {
+    width: 70%;
+}
+ .details-sec .card-sec .details h1{
+font-size: 1.2rem;
+font-weight: 600;
+padding-bottom: .5rem;
+}
+ .details-sec .card-sec .details p{
+    color: gray;
+padding: .5rem 0;
+font-size: 1rem;
+}
+ .details-sec .card-sec .details .buttom-sec{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+ .details-sec .card-sec .details .buttom-sec .profile-sec{
+    display: flex;
+    align-items: center;
+}
+ .details-sec .card-sec .details .buttom-sec .profile-sec .image{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+ .details-sec .card-sec .details .buttom-sec .profile-sec .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+ .details-sec .card-sec .details .buttom-sec .profile-sec .profile-detail{
+    margin-left: .5rem;
+}
+
+ .details-sec .card-sec .details .buttom-sec .watch i{
+    color: gray;
+    margin: 0 .5rem;
+}
+
+ .details-sec .card-sec .details .buttom-sec .star{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ .details-sec .card-sec .details .buttom-sec .star i{
+    padding: 0 .2rem;
+}
+ .details-sec .card-sec .details .buttom-sec .arrow{
+    font-size: 1.5rem;
+    color: rgb(123, 123, 254);
+}
+ .details-sec .card-sec .details .buttom-sec button{
+    margin-right: 1rem;
+}
+
+
+@media (max-width: 576px) {
+    
+.details-sec .card-sec {
+    display: inline;
+  }
+  .details-sec .card-sec .right-pic{
+    width: 100%;
+  }
+  .details-sec .card-sec .details {
+    width: 100%;
+}
+.details-sec .card-sec .details h1{
+    font-size: 1.2rem;
+    padding: .5rem 0;
+}
+.details-sec .card-sec .details p{
+padding: 0px 0px;
+font-size: .8rem;
+}
+.details-sec .card-sec .details .buttom-sec{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 0;
+}
+}
+
+@media (max-width: 768px) {
+    .details-sec .card-sec {
+        display: inline;
+      }
+      .details-sec .card-sec .right-pic{
+        width: 100%;
+      }
+      .details-sec .card-sec .details {
+        width: 100%;
+    }
+    .details-sec .card-sec .details h1{
+        font-size: 1.2rem;
+        padding: .5rem 0;
+    }
+    .details-sec .card-sec .details p{
+    padding: 0px 0px;
+    font-size: .8rem;
+    }
+    .details-sec .card-sec .details .buttom-sec{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0rem 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .details-sec .card-sec .details h1{
+        font-size: 1.2rem;
+        padding-bottom: 0rem;
+        }
+        .details-sec .card-sec .details p{
+        padding: 0rem 0;
+        font-size: 1rem;
+        }
+        .details-sec .card-sec .details .buttom-sec{
+            padding: .5rem 0;
+        }
+}
+
+
+
+.error{
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 1rem;
+  border: 3px solid darkblue;
+  text-align: center;
+}
+
+.error .image{
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 220px;
+  height: 100%;
+  background-color: white;
+}
+.error .image img{
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+ .error .card-title{
+  font-size: 1.5rem;
+  border: none;
+  font-weight: 700;
+}
+
+
+
+/* modal section start */
+.person-data h5{
+  font-size: 1rem;
+  margin-top: .5rem;
+}
+.person-data h6{
+  font-size: 1rem;
+}
+/* modal section end */
+
+
+
+
+
+footer{
+    align-items:baseline;
+    text-align: center;
+    padding-top: 3rem;
+}
+footer h6{
+    font-size: 1rem;
+    background-color: #242424;
+    color: #c2bfbf;
+    padding: 2rem 0;
+    margin-bottom: 0px;
+}

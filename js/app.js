@@ -43,6 +43,10 @@ const categoriesDetais = (detailsData, name) => {
     const detailsSec = document.getElementById('details-sec')
     detailsSec.textContent = '';
 
+    if (totalItem.innerText ==='0') {
+    totalItem.innerText = "EMPTY";
+    }
+
     if (detailsData.length === 0) {
         error(true)
     } else {
@@ -69,13 +73,13 @@ const categoriesDetais = (detailsData, name) => {
                         <img src="${details.thumbnail_url}" alt="">
                     </div>
                     <div class="profile-detail">
-                        <h6>${details.author.name}</h6>
+                        <h6>${details.author.name === null ? 'No Data Available' : details.author.name}</h6>
                         <h6>${details.author.published_date.split(" ")[0]}</h6>
                     </div>
                 </div>
                 <div class="watch">
                   <i class="fa-solid fa-eye"></i>
-                    <span>${details.total_view === 0 ? 'No Data' : details.total_view}</span>
+                    <span>${details.total_view === null ? 'No Data Available' : details.total_view}</span>
                 </div>
                 <div class="star">
                     <i class="fa-regular fa-star-half-stroke"></i>
@@ -119,7 +123,7 @@ const error = (isError) => {
 
 
 const categoriesModal = (person) => {
-    const { author, category_id, details, image_url, rating, title, total_view } = person;
+    const { author,thumbnail_url, category_id, details, image_url, rating, title, total_view } = person;
 
 console.log(person);
     const modalSection = document.getElementById('modalSection');
@@ -129,7 +133,8 @@ console.log(person);
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><strong> ${author.name} | ${author.published_date.split(" ")[0]} </strong></h5>
+        <img class="progile" src="${thumbnail_url}" alt="">
+        <h5 class="modal-title" id="exampleModalLabel"><strong> ${author.name === null ? 'No Data Available' : author.name} | ${author.published_date.split(" ")[0]} </strong></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -139,9 +144,9 @@ console.log(person);
         <div class="person-data">
         <h5><strong>Title : </strong>${title}</h5>
             <h6><strong>Rating : </strong> ${Object.values(rating).toString().split(',').join(', ')}</h6>
-            <h6><strong>Total View : </strong>${total_view}</h6>
+            <h6><strong>Total View :  <i class="fa-solid fa-eye"></i> </strong>${total_view === null ? 'No Data Available': total_view}</h6>
             <h6><strong>Category ID : </strong>${category_id}</h6>
-            <h6><strong>Details : </strong>${details}</h6>
+            <h6><strong>Details : </strong>${details.length > 350 ? details.slice(0, 350)+ "..." : details}</h6>
         </div>
       </div>
         <div class="modal-footer">
@@ -167,5 +172,4 @@ const personDetials = async bigId => {
     catch (error) {
         console.log(error);
     }
-
 }

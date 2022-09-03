@@ -9,7 +9,12 @@
   background-color: #ffffff;
   padding: 1.5rem 0;
 }
-
+.progile{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: .5rem;
+}
 .secret {
   background-color: darkblue;
   padding: 5px 15px;

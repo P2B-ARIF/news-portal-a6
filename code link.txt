@@ -20,4 +20,4 @@ Here total view and author name is null https://openapi.programming-hero.com/api
 what is difference of var let const?
 which difference of arrow function and regular function ?
 map, forEach, filter, find diffence 
-why use template string ?
+why use template strings ?

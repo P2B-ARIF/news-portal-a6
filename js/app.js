@@ -43,8 +43,8 @@ const categoriesDetais = (detailsData, name) => {
     const detailsSec = document.getElementById('details-sec')
     detailsSec.textContent = '';
 
-    if (totalItem.innerText ==='0') {
-    totalItem.innerText = "EMPTY";
+    if (totalItem.innerText === '0') {
+        totalItem.innerText = "EMPTY";
     }
 
     if (detailsData.length === 0) {
@@ -93,11 +93,10 @@ const categoriesDetais = (detailsData, name) => {
               </button>
             </div>
         </div>
-        `
+        `;
         detailsSec.appendChild(div);
     });
     loading(false);
-
 }
 
 // loading / spinner section start 
@@ -126,24 +125,28 @@ const error = (isError) => {
 
 
 const personDetials = async bigId => {
+    console.log(bigId);
     const modalSection = document.getElementById('modalSection');
     modalSection.innerHTML = '';
 
-    const url =`https://openapi.programming-hero.com/api/news/${bigId}`;
+    const url = `https://openapi.programming-hero.com/api/news/${bigId}`;
     try {
         const res = await fetch(url);
         const data = await res.json();
         categoriesModal(data.data[0]);
+        console.log(data.data[0]);
     }
     catch (error) {
         console.log(error);
     }
+    
 }
 
 const categoriesModal = (person) => {
-    const {author,thumbnail_url, category_id, details, image_url, rating, title, total_view} = person;
+    console.log(person);
+    const { author, thumbnail_url, category_id, details, image_url, rating, title, total_view } = person;
 
-console.log(person);
+    // console.log(person);
     const modalSection = document.getElementById('modalSection');
     modalSection.innerHTML = ` 
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -161,9 +164,9 @@ console.log(person);
         <div class="person-data">
         <h5><strong>Title : </strong>${title}</h5>
             <h6><strong>Rating : </strong> ${Object.values(rating).toString().split(',').join(', ')}</h6>
-            <h6><strong>Total View :  <i class="fa-solid fa-eye"></i> </strong>${total_view === null ? 'No Data Available': total_view}</h6>
+            <h6><strong>Total View :  <i class="fa-solid fa-eye"></i> </strong>${total_view === null ? 'No Data Available' : total_view}</h6>
             <h6><strong>Category ID : </strong>${category_id}</h6>
-            <h6><strong>Details : </strong>${details.length > 350 ? details.slice(0, 350)+ "..." : details}</h6>
+            <h6><strong>Details : </strong>${details.length > 350 ? details.slice(0, 350) + "..." : details}</h6>
         </div>
       </div>
         <div class="modal-footer">
@@ -172,7 +175,8 @@ console.log(person);
       </div>
     </div>
   </div>
-`
+`;
+console.log('hi');
 
 }
 

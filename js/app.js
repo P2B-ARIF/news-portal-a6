@@ -16,10 +16,9 @@ const getCategory = (allCategoryName) => {
     `
         allCategory.appendChild(li);
     });
-    
+
 }
 getCategoryName();
-
 
 const getCategoryDetails = async (searchId, name) => {
     loading(true)

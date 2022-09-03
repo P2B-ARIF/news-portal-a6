@@ -5,7 +5,7 @@ const getCategoryName = () => {
         .catch(error => console.log(error));
 }
 
-const getCategory = (allCategoryName) => {
+const getCategory = allCategoryName => {
 
     const allCategory = document.getElementById('all-category')
     allCategoryName.forEach(categoryName => {
@@ -96,11 +96,11 @@ const categoriesDetais = (detailsData, name) => {
         `
         detailsSec.appendChild(div);
     });
-    loading(false)
+    loading(false);
 
 }
 
-
+// loading / spinner section start 
 const loading = (isLoading) => {
     const loader = document.getElementById('loader')
     if (isLoading) {
@@ -109,7 +109,10 @@ const loading = (isLoading) => {
         loader.classList.add('d-none');
     }
 }
+// loading / spinner section end
 
+
+// eorror message start 
 const error = (isError) => {
     const error = document.getElementById('error')
     if (isError) {
@@ -118,17 +121,31 @@ const error = (isError) => {
         error.classList.add('d-none');
     }
 }
+// eorror message end 
 
 
 
+const personDetials = async bigId => {
+    const modalSection = document.getElementById('modalSection');
+    modalSection.innerHTML = '';
+
+    const url =`https://openapi.programming-hero.com/api/news/${bigId}`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        categoriesModal(data.data[0]);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 
 const categoriesModal = (person) => {
-    const { author,thumbnail_url, category_id, details, image_url, rating, title, total_view } = person;
+    const {author,thumbnail_url, category_id, details, image_url, rating, title, total_view} = person;
 
 console.log(person);
     const modalSection = document.getElementById('modalSection');
     modalSection.innerHTML = ` 
-   
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -159,17 +176,3 @@ console.log(person);
 
 }
 
-const personDetials = async bigId => {
-    const modalSection = document.getElementById('modalSection');
-    modalSection.innerHTML = '';
-
-    const url = `https://openapi.programming-hero.com/api/news/${bigId}`
-    try {
-        const res = await fetch(url);
-        const data = await res.json()
-        categoriesModal(data.data[0])
-    }
-    catch (error) {
-        console.log(error);
-    }
-}

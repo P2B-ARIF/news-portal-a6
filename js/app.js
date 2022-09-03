@@ -53,6 +53,10 @@ const categoriesDetais = (detailsData, name) => {
         error(false)
     }
 
+
+detailsData = detailsData.sort(
+    (obj1, obj2)=> obj2.total_view - obj1.total_view
+);
     detailsData.forEach(details => {
         const div = document.createElement('div')
         // div.setAttribute('onclick', 'modal()');

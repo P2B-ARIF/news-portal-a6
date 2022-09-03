@@ -20,9 +20,6 @@ const getCategory = (allCategoryName) => {
 getCategoryName();
 
 
-
-
-
 const getCategoryDetails = async (searchId, name) => {
     loading(true)
     const url = `https://openapi.programming-hero.com/api/news/category/0${searchId}`
@@ -34,7 +31,6 @@ const getCategoryDetails = async (searchId, name) => {
     catch (error) {
         console.log(error);
     }
-    // modal(data.data);
 }
 
 const categoriesDetais = (detailsData, name) => {
@@ -54,21 +50,20 @@ const categoriesDetais = (detailsData, name) => {
     }
 
 
-detailsData = detailsData.sort(
-    (obj1, obj2)=> obj2.total_view - obj1.total_view
-);
+    detailsData = detailsData.sort(
+        (obj1, obj2) => obj2.total_view - obj1.total_view
+    );
     detailsData.forEach(details => {
         const div = document.createElement('div')
-        // div.setAttribute('onclick', 'modal()');
         div.classList.add('card-sec')
         div.innerHTML = `
-        <div  class="right-pic">
+        <div onclick="personDetials('${details._id}')" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  class="right-pic">
             <img class="" src="${details.image_url}" alt="">
         </div>
-        <div  class="details">
+        <div onclick="personDetials('${details._id}')" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  class="details">
             <h1>${details.title}</h1>
             <p>${details.details.length > 350 ? details.details.slice(0, 350) + "..." : details.details}</p>
-            <div class="buttom-sec">
+            <div class="buttom-sec ">
                 <div class="profile-sec">
                     <div class="image">
                         <img src="${details.thumbnail_url}" alt="">
@@ -89,7 +84,9 @@ detailsData = detailsData.sort(
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                 </div>
-                <button data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="personDetials('${details._id}')"  class="btn"><i class="fa-solid fa-arrow-right arrow"></i></button>
+                <button onclick="personDetials('${details._id}')" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
             </div>
         </div>
         `
@@ -118,64 +115,57 @@ const error = (isError) => {
     }
 }
 
-const personDetials = async (bigId) => {
-    const url = `https://openapi.programming-hero.com/api/news/${bigId}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    categoriesModal(data.data[0]);
-}
-
-personDetials();
 
 
-const categoriesModal = async (person) => {
-    //     const url = `https://openapi.programming-hero.com/api/news/${bigId}`
-    // try {
-    //     const res = await fetch(url);
-    //      data = await res.json()
-    // }
-    // catch (error) {
-    //     console.log(error);
-    // }
 
-    // const { author, category_id, details, image_url, rating, title, total_view } = data.data[0];
+const categoriesModal = (person) => {
     const { author, category_id, details, image_url, rating, title, total_view } = person;
 
-    console.log(author);
-    console.log(category_id);
-    console.log(details);
-    console.log(image_url);
-    console.log(rating);
-    console.log(title);
-    console.log(total_view);
-    console.log('total_view');
+console.log(person);
     const modalSection = document.getElementById('modalSection');
     modalSection.innerHTML = ` 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header close-btn">
-            <h5 class="modal-title" id="exampleModalLabel"><strong> ${author.name} | ${author.published_date.split(" ")[0]} </strong></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div> 
-          <div class="modal-body">
-            <div class="image">
-            <img class="img-fluid" src="${image_url}" alt="">
-            </div>
-            <div class="person-data">
-            <h5><strong>Title : </strong>${title}</h5>
-                <h6><strong>Rating : </strong> ${Object.values(rating).toString().split(',').join(', ')}</h6>
-                <h6><strong>Total View : </strong>${total_view}</h6>
-                <h6><strong>Category ID : </strong>${category_id}</h6>
-                <h6><strong>Details : </strong>${details}</h6>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
+   
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><strong> ${author.name} | ${author.published_date.split(" ")[0]} </strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <div class="image">
+        <img class="img-fluid" src="${image_url}" alt="">
+        </div>
+        <div class="person-data">
+        <h5><strong>Title : </strong>${title}</h5>
+            <h6><strong>Rating : </strong> ${Object.values(rating).toString().split(',').join(', ')}</h6>
+            <h6><strong>Total View : </strong>${total_view}</h6>
+            <h6><strong>Category ID : </strong>${category_id}</h6>
+            <h6><strong>Details : </strong>${details}</h6>
+        </div>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+  </div>
 `
+
 }
-// categoriesModal()
+
+const personDetials = async bigId => {
+    const modalSection = document.getElementById('modalSection');
+    modalSection.innerHTML = '';
+
+    const url = `https://openapi.programming-hero.com/api/news/${bigId}`
+    try {
+        const res = await fetch(url);
+        const data = await res.json()
+        categoriesModal(data.data[0])
+    }
+    catch (error) {
+        console.log(error);
+    }
+
+}

@@ -16,84 +16,133 @@
   </head>
   <body>
     <header>
-  
-        <nav class="header-nav navbar navbar-expand-lg container">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#"><span class="secret">SECRET</span> NEWS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+      <!-- nav bar section start  -->
+      <nav class="header-nav navbar navbar-expand-lg container">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><span class="secret">SECRET</span> NEWS</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            
-            <div class="collapse navbar-collapse " id="navbarScroll">
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link active dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  ASSIGNMENT LIST
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="https://p2b-arif.github.io/sylhet-donation/"
+                      >Assignment 01</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="https://p2b-arif.github.io/assignment-02/"
+                      >Assignment 02</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="https://p2b-arif.github.io/assignment-03/"
+                      >Assignment 03</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="https://assignment-5-p2b-arif.netlify.app/"
+                      >Assignment 05</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!-- right site form start  -->
+            <form class="d-flex right-sec" role="search">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
 
-              <ul class="navbar-nav me-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;">
-                <li class="nav-item dropdown">
-                  <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    ASSIGNMENT LIST
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="https://p2b-arif.github.io/sylhet-donation/">Assignment 01</a></li>
-                    <li><a class="dropdown-item" href="https://p2b-arif.github.io/assignment-02/">Assignment 02</a></li>
-                    <li><a class="dropdown-item" href="https://p2b-arif.github.io/assignment-03/">Assignment 03</a></li>
-                    <li><a class="dropdown-item" href="https://assignment-5-p2b-arif.netlify.app/">Assignment 05</a></li>
-                  </ul>  
-                </li>
-               
-              </ul>
-              <form class="d-flex right-sec" role="search">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                </li>
-                
-                <li class="nav-item ">
-                  <a class="nav-link" aria-current="page" href="blog.html">4 Question</a>
-                </li>
-                <div class="image">
-                  <img src="profile.jpeg" alt="" />
-                </div>
-              </form>
-            </div>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="blog.html">4 Question</a>
+              </li>
+              <div class="image">
+                <img src="profile.jpeg" alt="" />
+              </div>
+            </form>
+            <!-- right site form end  -->
           </div>
-        </nav>
-  
+        </div>
+      </nav>
+      <!-- nav bar section end  -->
     </header>
 
     <section class="container">
-      <div class="category ">
+      <div class="category">
+        <!-- category section start  -->
+
         <ul id="all-category" class="">
           <!-- <li><button onclick="getCategoryDetails(${categoryName.category_id}, '${categoryName.category_name}')"  href="#" class="btn btn-light btn-focus">${categoryName.category_name}</button></li> -->
         </ul>
+
+        <!-- category section end  -->
       </div>
       <div class="found-sec">
-        <h5><strong id="total-item">0</strong> <span id="data">Items</span> Found For Category <strong id="tagName"></strong></h5>
+        <h5>
+          <strong id="total-item">0</strong> <span id="data">Items</span> Found For Category
+          <strong id="tagName"></strong>
+        </h5>
       </div>
     </section>
 
-
     <main class="container">
       <section class="quality-bar">
+        <!-- sort section start  -->
+
         <div class="sort">
           <h5>Sort By View</h5>
           <li class="nav-item dropdown btn btn-group">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               Select
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Highest View</a></li>
               <li><a class="dropdown-item" href="#">Lowest View</a></li>
-            </ul>  
+            </ul>
           </li>
-          
-
         </div>
+        <!-- sort section end  -->
+
+        <!-- sort right section start  -->
+
         <div class="right-btn">
           <button class="btn">Today's Pick</button>
           <button class="btn active">Tranding</button>
         </div>
+
+        <!-- sort right section end  -->
       </section>
 
       <section>
+        <!-- main card section start  -->
+
         <div id="details-sec" class="details-sec">
           <!-- <div class="card">
                 <div class="right-pic">
@@ -128,10 +177,11 @@
                 </div>
             </div> -->
         </div>
+
+        <!-- main card section end  -->
       </section>
 
-      
-<!-- loader section start  -->
+      <!-- loader section start  -->
 
       <div id="loader" class="loading d-none">
         <div class="text-center">
@@ -141,16 +191,14 @@
         </div>
       </div>
 
-<!-- loader section end  -->
-
+      <!-- loader section end  -->
     </main>
-
 
     <!-- no found message start  -->
 
     <div id="error" class="error d-none">
-      <div class="error-card" style="width: 18rem;">
-        <img src="404 error.png" class="card-img-top" alt="...">
+      <div class="error-card" style="width: 18rem">
+        <img src="404 error.png" class="card-img-top" alt="..." />
         <div class="card-body">
           <h1 class="card-title btn">NOT DATA FOUND</h1>
         </div>
@@ -159,14 +207,10 @@
 
     <!-- no found message end  -->
 
-
     <!-- modal box start  -->
-    <div id="modalSection">
-
-    </div>
+    <div id="modalSection"></div>
 
     <!-- modal box end  -->
-
 
     <!-- footer section start  -->
 
@@ -176,7 +220,7 @@
 
     <!-- footer section end  -->
 
-       <script
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"

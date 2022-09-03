@@ -16,6 +16,7 @@ const getCategory = (allCategoryName) => {
     `
         allCategory.appendChild(li);
     });
+    
 }
 getCategoryName();
 
